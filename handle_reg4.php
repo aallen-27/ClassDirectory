@@ -11,7 +11,7 @@
     </head>
     <body>
         <h1>Registration Results</h1>
-        <?php // Script 6.4 - handle_reg.php #5
+        <?php // Script 6.4 - handle_reg.php #4
             /* This script recieves seven values from register.html: 
              email, password, confirm, year, terms, color, submit */
             
@@ -40,27 +40,19 @@
             }
             
             // Validate the birth year:
-            if (is_numeric($_POST['year']) AND (strlen($_POST['year']) == 4)) {
-
-                // Check that they were born before this year:
-                if ($_POST['year'] < 2026) {
-                    $age = 2026 - $_POST['year'];
-                } else {
-                    print '<p class="error">Either you entered your birth year wrong, or you came from the future!</p>';
-                    $okay = false;
-                }
-
+            if (is_numeric($_POST['year'])) {
+                $age = 2026 - $_POST['year'];
             } else {
                 print '<p class="error">Please enter the year you were born as four digits.</p>';
                 $okay = false;
             }
             
-            // Validate the terms:
-            if (!isset($_POST['terms'])) {
-                print '<p class="error">You must accept the terms.</p>';
+            // Check that they were born before this year:
+            if ($_POST['year'] >= 2026) {
+                print '<p class="error">Either you entered your birth year wrong, or you came from the future!</p>';
                 $okay = false;
             }
-            
+
             // If there were no errors, print a success message:
             if ($okay) {
                 print '<p>You have been successfully registered (but not really)</p>';
