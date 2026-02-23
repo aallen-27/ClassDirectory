@@ -4,7 +4,7 @@
 include('templates/header.html');
 ?>
 
-<h2>Index.php title text</h2>
+<h2>Welcome to a J.D Salinger Fan Club!</h2>
 <p>Content data</p>
 
 <?php //Return to PHP to include the footer
