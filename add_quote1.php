@@ -5,13 +5,13 @@
         <title>Add A Quotation</title>
     </head>
     <body>
-        <?php // Script 11.2 - add_quote.php #2
+        <?php // Script 11.1 - add_quote.php
             $file = '/opt/lampp/htdocs/quotes.txt';
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
                 if ( !empty($_POST['quote']) && ($_POST['quote'] != 'Enter your quotation here.') ) {
                     if (is_writable($file)) {
-                        file_put_contents($file, $_POST['quote'] . PHP_EOL, FILE_APPEND | LOCK_EX);
+                        file_put_contents($file, $_POST['quote'] . PHP_EOL, FILE_APPEND);
                         print '<p>Your quotation has been stored.</p>';
                     } else { 
                         print '<p style="color: red;">Your quotation could not be stored due to a system error.</p>';
