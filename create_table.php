@@ -20,7 +20,7 @@
                 // Create a query
                 $query = 'CREATE TABLE entries (id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
                             title VARCHAR(100) NOT NULL, entry TEXT NOT NULL, 
-                            data_entered DATETIME NOT NULL ) CHARACTER SET utf8';
+                            date_entered DATETIME NOT NULL ) CHARACTER SET utf8';
 
                 // Run the query
                 if (@mysqli_query($dbc, $query)) {
