@@ -31,7 +31,7 @@
                         </p><hr>\n";
                 }
             } else {
-                print '<p style="color: red;">Could not retrieve the data because because:<br>' .
+                print '<p style="color: red;">Could not retrieve the data because:<br>' .
                     mysqli_error($dbc) . '.</p><p>The query being run was: ' . $query . '</p>';
             }
 
