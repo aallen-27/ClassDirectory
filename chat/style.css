@@ -1,0 +1,59 @@
+body {
+    margin: 0em;
+}
+.post, .own_post {
+    padding: 0.2em;
+    margin: 0.3em;
+    background-color: lightyellow;
+}
+.post h3, .own_post h3 , .post p, .own_post p{
+    margin: 0em;
+}
+.second_post h3 {
+    display: none;
+}
+.own_post {
+    background-color: lightgreen;
+    allign: right;
+}
+
+.bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.5em;
+    margin: 0em;
+}
+
+.err {
+    background-color: darkred;
+    color: lightred;
+}
+img {
+    width: 3em;
+}
+
+nav a {
+    padding: 0.2em;
+}
+
+main {
+    padding: 1em 5em;
+    min-height: calc(100vh - 14.6em); /* 14.6 = (5(bar Height) + 1(main padding) + 0.3(bar border)) * 2(top and bottom) */
+}
+
+#topbar {
+    height: 5em;
+    background-color: lightgray;
+    border-style: solid;
+    border-width: 0em;
+    border-bottom-width: 0.3em;
+}
+
+#bottombar {
+    height: 5em;
+    background-color: lightgray;
+    border-style: solid;
+    border-width: 0em;
+    border-top-width: 0.3em;
+}
