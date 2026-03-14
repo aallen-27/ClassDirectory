@@ -4,6 +4,12 @@
         <meta charset="utf-8">
         <title>Chat Application</title>
         <link rel="stylesheet" href="./style.css">
+        <!-- Fixes my refresh causes a repost issue -->
+        <script>
+            if (window.history.replaceState ) {
+                window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
     </head>
     <body>
         <div id="topbar" class="bar">

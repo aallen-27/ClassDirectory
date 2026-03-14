@@ -1,20 +1,34 @@
 body {
     margin: 0em;
 }
+
 .post, .own_post {
     padding: 0.2em;
     margin: 0.3em;
     background-color: lightyellow;
 }
+
 .post h3, .own_post h3 , .post p, .own_post p{
     margin: 0em;
 }
+
 .second_post h3 {
     display: none;
 }
+
 .own_post {
     background-color: lightgreen;
     allign: right;
+}
+
+.err {
+    background-color: darkred;
+    color: lightpink;
+}
+
+main {
+    padding: 1em 5em;
+    min-height: calc(100vh - 14.6em); /* 14.6 = (5(bar Height) + 1(main padding) + 0.3(bar border)) * 2(top and bottom) */
 }
 
 .bar {
@@ -25,21 +39,12 @@ body {
     margin: 0em;
 }
 
-.err {
-    background-color: darkred;
-    color: lightred;
-}
 img {
     width: 3em;
 }
 
 nav a {
     padding: 0.2em;
-}
-
-main {
-    padding: 1em 5em;
-    min-height: calc(100vh - 14.6em); /* 14.6 = (5(bar Height) + 1(main padding) + 0.3(bar border)) * 2(top and bottom) */
 }
 
 #topbar {

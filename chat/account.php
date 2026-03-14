@@ -8,11 +8,11 @@ error_reporting(E_ALL);
 
 session_start();
 
-if( $_SESSION['username'] == 'Admin') {
+if ( empty($_SESSION['username']) ) {
+    print '<p>You are not logged in</p>';
+} elseif( $_SESSION['username'] == 'Admin') {
     print '<p>You are logged in as \'Admin\'</p>';
     print '<p>This account is specially designed to not rely on SQL, and as such no data is available</p>';
-} else if ( $_SESSION['username'] == '') {
-    print '<p>You are not logged in</p>';
 } else {
     print "<p>You are logged in as '{$_SESSION['username']}'</p>";
 
@@ -20,35 +20,35 @@ if( $_SESSION['username'] == 'Admin') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_POST['fname'])) {
             print "<p>Updated First Name!</p>";
-            run_sql("UPDATE users SET fname = '{$_POST['fname']}'");
+            run_sql("UPDATE users SET fname = '{$_POST['fname']}' WHERE username = '{$_SESSION['username']}'");
         }
         if (!empty($_POST['lname'])) {
             print "<p>Updated Last Name!</p>";
-            run_sql("UPDATE users SET lname = '{$_POST['lname']}'");
+            run_sql("UPDATE users SET lname = '{$_POST['lname']}' WHERE username = '{$_SESSION['username']}'");
         }
         if (!empty($_POST['address'])) {
             print "<p>Updated Address!</p>";
-            run_sql("UPDATE users SET address = '{$_POST['address']}'");
+            run_sql("UPDATE users SET address = '{$_POST['address']}' WHERE username = '{$_SESSION['username']}'");
         }
         if (!empty($_POST['address'])) {
             print "<p>Updated Address!</p>";
-            run_sql("UPDATE users SET address = '{$_POST['address']}'");
+            run_sql("UPDATE users SET address = '{$_POST['address']}' WHERE username = '{$_SESSION['username']}'");
         }
         if (!empty($_POST['city'])) {
             print "<p>Updated City!</p>";
-            run_sql("UPDATE users SET city = '{$_POST['city']}'");
+            run_sql("UPDATE users SET city = '{$_POST['city']}' WHERE username = '{$_SESSION['username']}'");
         }
         if (!empty($_POST['state'])) {
             print "<p>Updated State!</p>";
-            run_sql("UPDATE users SET state = '{$_POST['state']}'");
+            run_sql("UPDATE users SET state = '{$_POST['state']}' WHERE username = '{$_SESSION['username']}'");
         }
         if (!empty($_POST['phone'])) {
             print "<p>Updated Phone Number!</p>";
-            run_sql("UPDATE users SET phone = '{$_POST['phone']}'");
+            run_sql("UPDATE users SET phone = '{$_POST['phone']}' WHERE username = '{$_SESSION['username']}'");
         }
         if (!empty($_POST['email'])) {
             print "<p>Updated Email!</p>";
-            run_sql("UPDATE users SET email = '{$_POST['email']}'");
+            run_sql("UPDATE users SET email = '{$_POST['email']}' WHERE username = '{$_SESSION['username']}'");
         }
     }
 

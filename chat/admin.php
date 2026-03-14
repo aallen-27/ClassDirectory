@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     print "<p>Post '{$posts[$i][0]}' by '{$posts[$i][2]}' saying '{$posts[$i][1]}' is probably not english.<p>";
                 }
             }
-            elseif (strlen($count) > 20) { // Over 20 characters, but less than 10 english ones. Possibly a different writing system like Japanese or Arabic.
+            elseif (strlen($post) > 20) { // Over 20 characters, but less than 10 English ones. Possibly a different writing system like Japanese or Arabic.
                 print "<p>Post '{$posts[$i][0]}' by '{$posts[$i][2]}' saying '{$posts[$i][1]}' is probably not english.<p>";
             }
         }
@@ -106,9 +106,11 @@ print '
             <select name="target">';
 
 // Create a list of all users from php
-$res = sql_query('SELECT username FROM users;');
-foreach ($res as $uname) {
-    print "<option value=\"{$uname[0]}\">{$uname[0]}</option>";
+if (is_db_real()) {
+    $res = sql_query('SELECT username FROM users;');
+    foreach ($res as $uname) {
+        print "<option value=\"{$uname[0]}\">{$uname[0]}</option>";
+    }
 }
 
 print '     </select>

@@ -51,4 +51,13 @@ function sql_query($query) {
     return $retval;
 }
 
+function is_db_real() {
+    $passfile = fopen('/opt/lampp/data/sql_pass.txt', 'r');
+    $password = trim(fread($passfile, filesize('/opt/lampp/data/sql_pass.txt')));
+
+    $dbc = mysqli_connect('localhost', 'root', "$password");
+    $ret = mysqli_query($dbc, 'SHOW DATABASES LIKE \'chat\'');
+    return !empty(mysqli_fetch_all($ret));
+}
+
 ?>

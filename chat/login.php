@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                     print '<p>Incorrect Password</p>';
             }
-        } else {
+        } elseif (is_db_real()){
             // Check if user already exists
             $password_found = sql_query("SELECT password FROM users WHERE username = '{$_POST['username']}'");
 
@@ -47,6 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     print '<p>Incorrect Password</p>';
                 }
             }
+        } else { // Attempted to sign in despite there being no database
+            print '<p>Can not create an account until admin creates the database</p>';
         }
     } else {
         print '<p class="err">Please fill in your username and password!</p>';
@@ -55,7 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // If not logged in, give login form. Otherwise, allow for a logout
 if($_SESSION['username'] != '') {
-    print '<p>Currently logged in as '. $_SESSION['username'] .' </p>
+    print '
+        <h1>Login Page</h1>
+        <p>Currently logged in as '. $_SESSION['username'] .' </p>
         <form action="login.php" method="post">
             <input type="hidden" name="logout" value="Logout">
             <input type="submit" name="submit" value="LogOut">
@@ -63,7 +67,7 @@ if($_SESSION['username'] != '') {
         ';
 } else {
     print '
-        <h1>Log in to College Chat Application!!!</h1>
+        <h1>Login Page</h1>
         <form action="login.php" method="post">
             <label for="username">Username:</label>
             <input name="username" size="32">

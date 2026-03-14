@@ -2,6 +2,12 @@
 include('./header.html');
 include('./sql_management.php');
 
+if (!is_db_real()) {
+    print '<p>Please ask the Admin to create the database before using the chat app.</p>';
+    include('./footer.html');
+    exit();
+}
+
 session_start();
 $me = $_SESSION['username'];
 
